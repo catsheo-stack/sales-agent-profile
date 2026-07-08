@@ -4,11 +4,13 @@ import PROFILE_IMG from "../../../assets/images/catherine-hero.png";
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden py-16 md:py-24 lg:py-32">
+    <section className="relative overflow-hidden py-12 md:py-24 lg:py-32">
       <div className="max-w-[1180px] mx-auto px-6 md:px-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 lg:gap-20">
+          
+          {/* Text Content */}
           <motion.div
-            className="text-center lg:text-left"
+            className="text-center lg:text-left order-2 lg:order-1"
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -44,16 +46,16 @@ export default function HeroSection() {
             </p>
           </motion.div>
 
+          {/* Image First on Mobile */}
           <motion.div
-            className="w-full"
+            className="w-full order-1 lg:order-2"
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           >
             <div
-              className="mx-auto overflow-hidden rounded-[32px] bg-white shadow-2xl"
+              className="mx-auto max-w-sm lg:max-w-xl overflow-hidden rounded-[32px] bg-white shadow-2xl"
               style={{
-                maxWidth: "620px",
                 boxShadow:
                   "0 30px 70px rgba(7,27,51,.10), 0 8px 20px rgba(7,27,51,.05)",
               }}
