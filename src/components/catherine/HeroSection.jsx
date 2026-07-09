@@ -20,7 +20,7 @@ export default function HeroSection() {
             </p>
 
             <h1 className="font-playfair font-bold text-5xl md:text-6xl lg:text-7xl text-[#071B33] tracking-tight leading-none">
-              CATHERINE
+              CATHERIN
             </h1>
 
             <p className="font-inter text-sm md:text-base tracking-[0.3em] text-[#C79245] font-medium mt-3 mb-6">
