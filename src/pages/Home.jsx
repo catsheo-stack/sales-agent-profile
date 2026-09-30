@@ -4,6 +4,7 @@ import HeroSection from "@/components/catherine/HeroSection";
 import CredentialCards from "@/components/catherine/CredentialCards";
 import ToolsSection from "@/components/catherine/ToolsSection";
 import ReviewSection from "@/components/catherine/ReviewSection";
+import ContactSection from "@/components/catherine/ContactSection";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         <CredentialCards />
         <ToolsSection />
         <ReviewSection />
+        <ContactSection />
       </div>
     </div>
   );
