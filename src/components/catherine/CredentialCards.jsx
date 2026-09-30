@@ -1,5 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Trophy, Star, GraduationCap, Users, ExternalLink } from "lucide-react";
+import FINANCE_IMG from "../../../assets/images/recognition-finance.webp";
+import RATEMYAGENT_IMG from "../../../assets/images/recognition-ratemyagent.webp";
+import CONVEYANCING_IMG from "../../../assets/images/recognition-conveyancing.webp";
+import EXPERIENCE_IMG from "../../../assets/images/recognition-experience.webp";
 
 const RATEMYAGENT_URL =
   "https://www.ratemyagent.com.au/real-estate-agent/catherine-sheo-iw388/sales/overview";
@@ -11,6 +15,8 @@ const credentials = [
     title: "WESTPAC PLATINUM BROKER",
     text: "Recognised for outstanding performance, customer outcomes and professional excellence.",
     extra: null,
+    image: FINANCE_IMG,
+    imagePosition: "65% 70%",
   },
   {
     icon: Star,
@@ -18,6 +24,8 @@ const credentials = [
     title: "RATEMYAGENT AWARD",
     text: "Ranked among the best in West Melbourne with 5.0 average client reviews.",
     extra: "ratemyagent",
+    image: RATEMYAGENT_IMG,
+    imagePosition: "55% 55%",
   },
   {
     icon: GraduationCap,
@@ -25,6 +33,8 @@ const credentials = [
     title: "ADVANCED DIPLOMA OF CONVEYANCING (VICTORIA)",
     text: "Formal legal knowledge to better understand property transactions and protect your interests.",
     extra: null,
+    image: CONVEYANCING_IMG,
+    imagePosition: "50% 45%",
   },
   {
     icon: Users,
@@ -32,6 +42,8 @@ const credentials = [
     title: "10+ YEARS EXPERIENCE",
     text: "Across mortgage finance and residential real estate.",
     extra: null,
+    image: EXPERIENCE_IMG,
+    imagePosition: "40% 60%",
   },
 ];
 
@@ -59,6 +71,7 @@ function AnimatedCard({ credential, index }) {
         {credential.ghostChar}
       </span>
 
+      <div className="relative z-10 p-7 md:p-8 sm:pr-[36%] lg:pr-[32%]">
       <div className="w-12 h-12 rounded-xl bg-[#F8F4EE] flex items-center justify-center mb-5">
         <Icon className="w-6 h-6 text-[#C79245]" strokeWidth={1.5} />
       </div>
@@ -83,11 +96,28 @@ function AnimatedCard({ credential, index }) {
           </span>
         </div>
       )}
+      </div>
+
+      {/* Supporting image: shallow strip below the text on mobile, faded into the right side of the card from sm up */}
+      <div
+        className="relative h-36 w-full overflow-hidden sm:absolute sm:inset-y-0 sm:right-0 sm:h-auto sm:w-[38%] lg:w-[36%]"
+        aria-hidden="true"
+      >
+        <img
+          src={credential.image}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          className="h-full w-full object-cover"
+          style={{ objectPosition: credential.imagePosition }}
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,#fff_0%,rgba(255,255,255,0.7)_25%,rgba(255,255,255,0)_70%)] sm:bg-[linear-gradient(to_right,#fff_0%,rgba(255,255,255,0.75)_25%,rgba(255,255,255,0)_65%)]" />
+      </div>
     </>
   );
 
   const commonClass =
-    "credential-card group relative bg-white rounded-2xl p-7 md:p-8 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl";
+    "credential-card group relative bg-white rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl";
 
   const commonStyle = {
     opacity: visible ? 1 : 0,
